@@ -53,7 +53,7 @@ const Calendar = () => {
 
   useEffect(() => {
     setData(scheduler.calendar);
-  });
+  }, [scheduler.calendar]);
 
   if (scheduler?.calendar.length <= 0) return <Loading />;
 
@@ -64,6 +64,7 @@ const Calendar = () => {
               id="downloadButton"
               style={{ padding: '1rem' }}
               onClick={() => saveCsv(data, `Schedule_${new Date().getUTCFullYear()}_${new Date().getUTCMonth() + 1}`)}
+              data-testid="data-testid-download"
             >
               Download
             </RuxButton>
