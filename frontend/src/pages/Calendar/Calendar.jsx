@@ -49,16 +49,13 @@ const Calendar = () => {
   const view = 'monthly';
   const scheduler = useContext(SchedulerContext);
 
-  //const { data, err, load } = useFetch('calendar?start=1&end=31');
   const location = useLocation().pathname;
 
   useEffect(() => {
-    // Intentionally left blank
     setData(scheduler.calendar);
-    console.log(scheduler.calendar);
-  }, []);
+  });
 
-  if (!scheduler?.calendar) return <Loading />;
+  if (scheduler?.calendar.length <= 0) return <Loading />;
 
   return (
     <article style={{ width: '100%' }}>
